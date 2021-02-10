@@ -1,0 +1,21 @@
+apiVersion: apps/v1 #this is a new api
+kind: Deployment
+metadata:
+  name: myapp3-deployment #it will create an replicaset with this name
+
+spec:
+  replicas: 3 #so it will deploy three pod
+  selector:
+    matchLabels: #match key value
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-prod
+      labels:
+        app: myapp3  
+    spec:
+      containers:
+        - name: myapp3-container
+          image: stacksimplify/kubenginx:3.0.0
+          ports:
+            - containerPort: 80    
