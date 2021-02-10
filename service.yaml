@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-pod-service
+spec:
+  type: NodePort
+  selector:
+    app: myapp-pod #this statement comes from label pod.yaml
+    #accept traffic sent to port 80
+  ports:
+    - name: http
+      port: 80 #service port
+      targetPort: 80 #container port
