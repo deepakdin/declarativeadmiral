@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+  name: mem-cpu-demo
+spec:
+  hard:
+    requests.cpu: "1" 
+    requests.memory: 1Gi #the container will be given 1Gb of memory
+    limits.cpu: "2"
+    limits.memory: 2Gi
